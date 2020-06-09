@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>local storage test</title>
+</head>
+<body>
+    <h1>hello ~, check stuff in your browser console.</h1>
+    <script>
+        let getLocalStorage = window.localStorage;
+        
+        function setItem(key, value) {
+            return getLocalStorage.setItem(key, value);
+        };
+
+        function removeItem(key) {
+            return getLocalStorage.removeItem(key);
+        };
+
+        function getItemByKey(key) {
+            let result = getLocalStorage.getItem(key);
+            return result;
+        };
+
+        function testIfLocalStorageIsAvailable() {
+            let isAvailable = true;
+            let errorMessage = null;
+            try {
+                setItem('4362476320432', 'test');
+            }catch(e) {
+                isAvailable = false;
+            }
+            console.log('Local storage availability: ' + isAvailable);
+        }
+        testIfLocalStorageIsAvailable();
+    </script>
+</body>
+</html>
